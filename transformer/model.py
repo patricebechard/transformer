@@ -2,12 +2,14 @@ import torch
 from torch import nn
 import torch.nn.functional as F
 from math import sqrt
+from transformer.utils import DEVICE
 
 class Transformer(nn.Module):
     # model inspired from Vaswani et. al. 2017
     # https://arxiv.org/pdf/1706.03762.pdf
     
-    def __init__(self, vocab_size, d_model=512, n_layers=6, max_length=5000):
+    def __init__(self, vocab_size, d_model=512, n_layers=6, n_heads=8,
+                 d_ff=2048, max_length=5000):
         super(Transformer, self).__init__()
         
         self.d_model = d_model
@@ -16,15 +18,19 @@ class Transformer(nn.Module):
         self.embedding = nn.Embedding(vocab_size, d_model)
         # the position embedding is learned, not a bunch of sin and cos
         self.pos_embedding = nn.Embedding(max_length, d_model)
-        self.encoder_layers = nn.ModuleList([EncoderLayer(d_model) for i in range(n_layers)])
-        self.decoder_layers = nn.ModuleList([DecoderLayer(d_model) for i in range(n_layers)])
+        self.encoder_layers = nn.ModuleList(
+            [EncoderLayer(d_model=d_model, n_heads=n_heads, d_ff=d_ff) for i in range(n_layers)]
+        )
+        self.decoder_layers = nn.ModuleList(
+            [DecoderLayer(d_model=d_model, n_heads=n_heads, d_ff=d_ff) for i in range(n_layers)]
+        )
 
         self.fc = nn.Linear(d_model, vocab_size)
         
     def forward(self, encoder_in, decoder_in):
         
-        encoder_pos = torch.arange(encoder_in.shape[1]).repeat(encoder_in.shape[0], 1)
-        decoder_pos = torch.arange(decoder_in.shape[1]).repeat(decoder_in.shape[0], 1)
+        encoder_pos = torch.arange(encoder_in.shape[1]).to(DEVICE)
+        decoder_pos = torch.arange(decoder_in.shape[1]).to(DEVICE)
         
         encoder_in = self.embedding(encoder_in) + self.pos_embedding(encoder_pos)
         decoder_in = self.embedding(decoder_in) + self.pos_embedding(decoder_pos)
@@ -42,15 +48,19 @@ class Transformer(nn.Module):
 
 class EncoderLayer(nn.Module):
     
-    def __init__(self, d_model=512):
+    def __init__(self, d_model=512, n_heads=8, d_ff=2048):
         super(EncoderLayer, self).__init__()
         
         self.d_model = d_model
+        self.n_heads = n_heads
+        self.d_ff = d_ff
         
-        self.attn = MultiHeadAttn()
+        self.attn = MultiHeadAttn(d_model=d_model,
+                                  n_heads=n_heads)
         self.layernorm1 = nn.LayerNorm(d_model)
         
-        self.positionwiseff = PositionWiseFeedForward()
+        self.positionwiseff = PositionWiseFeedForward(d_model=d_model,
+                                                      d_ff=d_ff)
         self.layernorm2 = nn.LayerNorm(d_model)
     
     def forward(self, encoder_in):
@@ -64,24 +74,29 @@ class EncoderLayer(nn.Module):
 
 class DecoderLayer(nn.Module):
     
-    def __init__(self, d_model=512):
+    def __init__(self, d_model=512, n_heads=8, d_ff=2048):
         super(DecoderLayer, self).__init__()
         
         self.d_model = d_model
+        self.n_head = n_heads
+        self.d_ff = d_ff
         
-        self.masked_attn = MultiHeadAttn()
+        self.masked_attn = MultiHeadAttn(d_model=d_model,
+                                         n_heads=n_heads)
         self.layernorm1 = nn.LayerNorm(d_model)
         
-        self.attn = MultiHeadAttn()
+        self.attn = MultiHeadAttn(d_model=d_model,
+                                  n_heads=n_heads)
         self.layernorm2 = nn.LayerNorm(d_model)
         
-        self.positionwiseff = PositionWiseFeedForward()
+        self.positionwiseff = PositionWiseFeedForward(d_model=d_model,
+                                                      d_ff=d_ff)
         self.layernorm3 = nn.LayerNorm(d_model)
     
     def forward(self, decoder_in, encoder_out):
         
         seq_len = decoder_in.shape[1]
-        mask = torch.triu(torch.ones(seq_len, seq_len))
+        mask = torch.triu(torch.ones(seq_len, seq_len)).to(DEVICE)
         
         decoder_in = self.layernorm1(decoder_in + self.masked_attn(queries=decoder_in, 
                                                                    keys=decoder_in, 
@@ -96,7 +111,7 @@ class DecoderLayer(nn.Module):
 
 class MultiHeadAttn(nn.Module):
     
-    def __init__(self, n_heads=8, d_model=512):
+    def __init__(self, d_model=512, n_heads=8):
         super(MultiHeadAttn, self).__init__()
         
         # making sure that the dimensionality doesn't change before/after attn
@@ -111,9 +126,10 @@ class MultiHeadAttn(nn.Module):
         self.keys_fc = nn.ModuleList([nn.Linear(self.d_model, self.d_k) for i in range(n_heads)])
         self.values_fc = nn.ModuleList([nn.Linear(self.d_model, self.d_v) for i in range(n_heads)])
         
-        self.attn = ScaledDotProductAttn()
+        self.attn = ScaledDotProductAttn(d_k=self.d_k,
+                                         d_v=self.d_v)
         
-        self.head_fc = nn.Linear(self.d_model, self.d_model )
+        self.head_fc = nn.Linear(self.d_model, self.d_model)
         
     def forward(self, queries, keys, values, mask=None):
         
@@ -162,14 +178,14 @@ class ScaledDotProductAttn(nn.Module):
 
 class PositionWiseFeedForward(nn.Module):
     
-    def __init__(self, dmodel=512, dff=2046):
+    def __init__(self, d_model=512, d_ff=2046):
         super(PositionWiseFeedForward, self).__init__()
         
-        self.dmodel = dmodel
-        self.dff = dff
+        self.d_model = d_model
+        self.d_ff = d_ff
         
-        self.fc1 = nn.Linear(dmodel, dff)
-        self.fc2 = nn.Linear(dff, dmodel)
+        self.fc1 = nn.Linear(d_model, d_ff)
+        self.fc2 = nn.Linear(d_ff, d_model)
         
     def forward(self, x):
         
