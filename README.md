@@ -4,6 +4,17 @@ This repo contains (will contain shortly) a PyTorch implementation of the Transf
 
 The repo also contains slides for a presentation given for the Scientific Discussions at Intact Data Lab.
 
+### TODO
+
+* create training setting similar to Vaswani paper
+* add dropout
+* use BPE to encode sentences
+* Preprocessing using SpaCy
+* Train on WMT and Cornell Movie Dialog Corpus
+* add label smoothing
+* implement beam search
+
+
 ### References
 
 * Vaswani, Ashish, et al. "Attention is all you need." Advances in Neural Information Processing Systems. 2017.

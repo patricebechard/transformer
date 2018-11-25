@@ -5,5 +5,9 @@
     "n_heads": 8,
     "d_ff": 2048,
     "max_length": 5000,
-    "batch_size": 32
+    "batch_size": 32,
+    "beta_1": 0.9,
+    "beta_2": 0.98,
+    "epsilon": 1e-9,
+    "warmup_steps": 4000
 }
