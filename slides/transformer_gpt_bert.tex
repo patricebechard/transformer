@@ -1,0 +1,219 @@
+\documentclass[aspectratio=169]{beamer}
+
+
+%%% Style
+\include{intact_datalab_beamer_template}
+
+
+%%% Extensions utiles pour le français
+\usepackage[french]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{xcolor}
+
+%%% Extensions utiles pour les math
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{bbold}
+\usepackage{mathtools}
+
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+%%% Extensions pour les figures
+\usepackage{graphicx}
+%\usepackage{subfig}
+\usepackage{tikz}
+
+%%% for python scripts
+\usepackage{listings}
+\usepackage{verbatim}
+
+%%% Bibliographie
+\usepackage{bibentry}
+
+%%% Informations sur la présentation
+\author{Patrice B\'echard}
+\institute[Intact]{
+\small{Intact Data Lab} \\
+\textit{patrice.bechard@intact.net}
+}
+\title{The Transformer Architecture and Generative Pre-training}
+\date{November 16th, 2018}
+
+
+%%% Préférences (Propre au thème du DMS)
+\slidelogo
+\titlelogo
+%\titleimage{figures/deep_learning_v2.png}  % Image à afficher sur la page titre
+\footlinetext{  % À utiliser surtout pour les congrès
+\insertshorttitle\quad\insertshortdate\quad\insertshortinstitute
+}
+
+
+\def\signed #1{{\leavevmode\unskip\nobreak\hfil\penalty50\hskip2em
+  \hbox{}\nobreak\hfil(#1)%
+  \parfillskip=0pt \finalhyphendemerits=0 \endgraf}}
+
+\newsavebox\mybox
+\newenvironment{aquote}[1]
+  {\savebox\mybox{#1}\begin{quote}}
+  {\signed{\usebox\mybox}\end{quote}}
+
+ \usepackage{ragged2e}
+
+
+%%% Début
+\begin{document}
+
+% Title page
+
+\begin{frame}[plain, t]
+  \titlepage
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Motivations
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Overview}
+
+\centering {\Large Why are these recent advances important?}
+\vspace{.5cm}
+
+\begin{itemize}
+	\item Classic Neural Machine Translation (NMT) approaches are difficult to parallelize and take a long time to train.
+	\item Annotated datasets are expensive to build (time and resources).
+	\item We have an \textit{infinite} amount of raw textual data.
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Table of contents
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Plan}
+  \tableofcontents
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Neural Machine Translation
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Neural Machine Translation}
+
+\begin{frame}{Neural Machine Translation}
+\end{frame}
+
+\begin{frame}{Neural Machine Translation}
+The task
+\end{frame}
+
+\begin{frame}{Neural Machine Translation}
+The Sequence to Sequence (seq2seq) model
+
+\includegraphics[width=\textwidth]{figures/seq2seq}
+
+\end{frame}
+
+\begin{frame}{Neural Machine Translation}
+\begin{columns}
+\begin{column}{0.5\textwidth}
+   The Attention Mechanism
+   \begin{itemize}
+   	\item Shortcut between word from source sentence and target sentence
+   \end{itemize}
+\end{column}
+\begin{column}{0.5\textwidth}  %%<--- here
+    \begin{center}
+    \vspace{-1.3cm}
+    \includegraphics[width=\textwidth]{figures/seq2seq_attn}
+    \end{center}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Neural Machine Translation}
+Limitations
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% The Transformer Architecture
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{The Transformer Architecture}
+
+\begin{frame}{The Transformer Architecture}
+{\Large The Transformer Architecture}
+\end{frame}
+
+\begin{frame}{The Transformer Architecture}
+\includegraphics[width=\textwidth]{figures/optimus_prime_bumblebee}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Word Embeddings
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Word Embeddings}
+
+\begin{frame}{Word Embeddings}
+Idea
+\end{frame}
+
+\begin{frame}{Word Embeddings}
+Mikolov's Skip-gram and CBOW
+\end{frame}
+
+\begin{frame}{Word Embeddings}
+Other approaches (GLOVE, ELMo)
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Generative Pre-training (OpenAI-GPT & BERT)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Generative Pre-training}
+
+\begin{frame}{Generative Pre-training}
+Idea
+\end{frame}
+
+\begin{frame}{Generative Pre-training}
+Two Approaches to Transfer Learning
+\end{frame}
+
+\begin{frame}{Generative Pre-training}
+OpenAI-GPT
+\end{frame}
+
+\begin{frame}{Generative Pre-training}
+BERT
+\end{frame}
+
+\begin{frame}{Generative Pre-training}
+BERT
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Going Further
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Going Further}
+
+\begin{frame}{Going Further}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% References
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{References}
+
+\begin{frame}[t,allowframebreaks]
+\setbeamertemplate{bibliography item}{[\theenumiv]}
+
+
+  \frametitle{References}
+  \nocite*
+  \bibliographystyle{siam}
+  \bibliography{references}
+ \end{frame}
+
+\end{document}

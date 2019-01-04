@@ -1,0 +1,6 @@
+\babel@toc {french}{}
+\beamer@sectionintoc {1}{Neural Machine Translation}{4}{0}{1}
+\beamer@sectionintoc {2}{The Transformer Architecture}{9}{0}{2}
+\beamer@sectionintoc {3}{Word Embeddings}{11}{0}{3}
+\beamer@sectionintoc {4}{Generative Pre-training}{14}{0}{4}
+\beamer@sectionintoc {5}{Going Further}{19}{0}{5}
