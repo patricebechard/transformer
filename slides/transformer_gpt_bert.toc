@@ -1,6 +1,9 @@
-\babel@toc {french}{}
 \beamer@sectionintoc {1}{Neural Machine Translation}{4}{0}{1}
-\beamer@sectionintoc {2}{The Transformer Architecture}{9}{0}{2}
-\beamer@sectionintoc {3}{Word Embeddings}{11}{0}{3}
-\beamer@sectionintoc {4}{Generative Pre-training}{14}{0}{4}
-\beamer@sectionintoc {5}{Going Further}{19}{0}{5}
+\beamer@sectionintoc {2}{The Transformer Architecture}{11}{0}{2}
+\beamer@sectionintoc {3}{Transfer Learning in NLP}{27}{0}{3}
+\beamer@subsectionintoc {3}{1}{Word Embeddings}{28}{0}{3}
+\beamer@subsectionintoc {3}{2}{Language Models}{36}{0}{3}
+\beamer@sectionintoc {4}{Contextualized Word Embeddings}{38}{0}{4}
+\beamer@sectionintoc {5}{Generative Pre-training}{44}{0}{5}
+\beamer@sectionintoc {6}{Using These Recent Advances in the Data Lab}{57}{0}{6}
+\beamer@sectionintoc {7}{Going Further}{58}{0}{7}

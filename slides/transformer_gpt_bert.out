@@ -1,6 +1,10 @@
 \BOOKMARK [2][]{Outline0.1}{Neural Machine Translation}{}% 1
 \BOOKMARK [2][]{Outline0.2}{The Transformer Architecture}{}% 2
-\BOOKMARK [2][]{Outline0.3}{Word Embeddings}{}% 3
-\BOOKMARK [2][]{Outline0.4}{Generative Pre-training}{}% 4
-\BOOKMARK [2][]{Outline0.5}{Going Further}{}% 5
-\BOOKMARK [2][]{Outline0.6}{References}{}% 6
+\BOOKMARK [2][]{Outline0.3}{Transfer Learning in NLP}{}% 3
+\BOOKMARK [3][]{Outline0.3.1.28}{Word Embeddings}{Outline0.3}% 4
+\BOOKMARK [3][]{Outline0.3.2.36}{Language Models}{Outline0.3}% 5
+\BOOKMARK [2][]{Outline0.4}{Contextualized Word Embeddings}{}% 6
+\BOOKMARK [2][]{Outline0.5}{Generative Pre-training}{}% 7
+\BOOKMARK [2][]{Outline0.6}{Using These Recent Advances in the Data Lab}{}% 8
+\BOOKMARK [2][]{Outline0.7}{Going Further}{}% 9
+\BOOKMARK [2][]{Outline0.8}{References}{}% 10

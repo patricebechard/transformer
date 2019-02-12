@@ -1,0 +1,110 @@
+\begin{thebibliography}{10}
+
+\bibitem{alammar2018illustrated}
+{\sc J.~Alammar}, {\em The illustrated bert, elmo and co. (how nlp cracked
+  transfer learning)}, jalammar.github.io,  (2018).
+
+\bibitem{ba2016layer}
+{\sc J.~L. Ba, J.~R. Kiros, and G.~E. Hinton}, {\em Layer normalization}, arXiv
+  preprint arXiv:1607.06450,  (2016).
+
+\bibitem{bahdanau2014neural}
+{\sc D.~Bahdanau, K.~Cho, and Y.~Bengio}, {\em Neural machine translation by
+  jointly learning to align and translate}, arXiv preprint arXiv:1409.0473,
+  (2014).
+
+\bibitem{bengio2003neural}
+{\sc Y.~Bengio, R.~Ducharme, P.~Vincent, and C.~Jauvin}, {\em A neural
+  probabilistic language model}, Journal of machine learning research, 3
+  (2003), pp.~1137--1155.
+
+\bibitem{cho2014learning}
+{\sc K.~Cho, B.~Van~Merri{\"e}nboer, C.~Gulcehre, D.~Bahdanau, F.~Bougares,
+  H.~Schwenk, and Y.~Bengio}, {\em Learning phrase representations using rnn
+  encoder-decoder for statistical machine translation}, arXiv preprint
+  arXiv:1406.1078,  (2014).
+
+\bibitem{dai2019transformer}
+{\sc Z.~Dai, Z.~Yang, Y.~Yang, W.~W. Cohen, J.~Carbonell, Q.~V. Le, and
+  R.~Salakhutdinov}, {\em Transformer-xl: Attentive language models beyond a
+  fixed-length context}, arXiv preprint arXiv:1901.02860,  (2019).
+
+\bibitem{devlin2018bert}
+{\sc J.~Devlin, M.-W. Chang, K.~Lee, and K.~Toutanova}, {\em Bert: Pre-training
+  of deep bidirectional transformers for language understanding}, arXiv
+  preprint arXiv:1810.04805,  (2018).
+
+\bibitem{gehring2016convolutional}
+{\sc J.~Gehring, M.~Auli, D.~Grangier, and Y.~N. Dauphin}, {\em A convolutional
+  encoder model for neural machine translation}, arXiv preprint
+  arXiv:1611.02344,  (2016).
+
+\bibitem{gehring2017convolutional}
+{\sc J.~Gehring, M.~Auli, D.~Grangier, D.~Yarats, and Y.~N. Dauphin}, {\em
+  Convolutional sequence to sequence learning}, arXiv preprint
+  arXiv:1705.03122,  (2017).
+
+\bibitem{he2016deep}
+{\sc K.~He, X.~Zhang, S.~Ren, and J.~Sun}, {\em Deep residual learning for
+  image recognition}, in Proceedings of the IEEE conference on computer vision
+  and pattern recognition, 2016, pp.~770--778.
+
+\bibitem{kalchbrenner2016neural}
+{\sc N.~Kalchbrenner, L.~Espeholt, K.~Simonyan, A.~v.~d. Oord, A.~Graves, and
+  K.~Kavukcuoglu}, {\em Neural machine translation in linear time}, arXiv
+  preprint arXiv:1610.10099,  (2016).
+
+\bibitem{karpathy2015unreasonable}
+{\sc A.~Karpathy}, {\em The unreasonable effectiveness of recurrent neural
+  networks}, Andrej Karpathy blog,  (2015).
+
+\bibitem{luong2015effective}
+{\sc M.-T. Luong, H.~Pham, and C.~D. Manning}, {\em Effective approaches to
+  attention-based neural machine translation}, arXiv preprint arXiv:1508.04025,
+   (2015).
+
+\bibitem{mikolov2013efficient}
+{\sc T.~Mikolov, K.~Chen, G.~Corrado, and J.~Dean}, {\em Efficient estimation
+  of word representations in vector space}, arXiv preprint arXiv:1301.3781,
+  (2013).
+
+\bibitem{mikolov2013distributed}
+{\sc T.~Mikolov, I.~Sutskever, K.~Chen, G.~S. Corrado, and J.~Dean}, {\em
+  Distributed representations of words and phrases and their compositionality},
+  in Advances in neural information processing systems, 2013, pp.~3111--3119.
+
+\bibitem{pennington2014glove}
+{\sc J.~Pennington, R.~Socher, and C.~Manning}, {\em Glove: Global vectors for
+  word representation}, in Proceedings of the 2014 conference on empirical
+  methods in natural language processing (EMNLP), 2014, pp.~1532--1543.
+
+\bibitem{peters2018deep}
+{\sc M.~E. Peters, M.~Neumann, M.~Iyyer, M.~Gardner, C.~Clark, K.~Lee, and
+  L.~Zettlemoyer}, {\em Deep contextualized word representations}, arXiv
+  preprint arXiv:1802.05365,  (2018).
+
+\bibitem{radford2018improving}
+{\sc A.~Radford, K.~Narasimhan, T.~Salimans, and I.~Sutskever}, {\em Improving
+  language understanding by generative pre-training}, URL https://s3-us-west-2.
+  amazonaws. com/openai-assets/research-covers/language-unsupervised/language\_
+  understanding\_paper. pdf,  (2018).
+
+\bibitem{rush2018annotated}
+{\sc A.~Rush, V.~Nguyen, and G.~Klein}, {\em The annotated transformer},
+  harvardnlp,  (2018).
+
+\bibitem{sutskever2014sequence}
+{\sc I.~Sutskever, O.~Vinyals, and Q.~V. Le}, {\em Sequence to sequence
+  learning with neural networks}, in Advances in neural information processing
+  systems, 2014, pp.~3104--3112.
+
+\bibitem{vaswani2017attention}
+{\sc A.~Vaswani, N.~Shazeer, N.~Parmar, J.~Uszkoreit, L.~Jones, A.~N. Gomez,
+  {\L}.~Kaiser, and I.~Polosukhin}, {\em Attention is all you need}, in
+  Advances in Neural Information Processing Systems, 2017, pp.~5998--6008.
+
+\bibitem{weng2019generalized}
+{\sc L.~Weng}, {\em Generalized language models}, lilianweng.github.io,
+  (2019).
+
+\end{thebibliography}
